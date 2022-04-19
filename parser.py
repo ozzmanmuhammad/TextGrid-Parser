@@ -140,7 +140,10 @@ class TextGrid(object):
         @param file: a file in TextGrid format
         """
 
-        return TextGrid(open(file, encoding='utf-16').read())
+        try:
+          return TextGrid(open(file, encoding='utf-16').read())
+        except:
+          return TextGrid(open(file).read())
 
     def _load_tiers(self, header):
         """
